@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Rena 13/02/25</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ADD8E6; /* Azul claro */
+            color: #000;
+            overflow: hidden;
+            position: relative;
+        }
 
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .comunicado {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 600px;
+        }
+
+        .shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="shapes" id="shapes"></div>
+    <div class="container">
+        <div class="comunicado">
+            <h1>Despedida del Bot</h1>
+            <p>
+                Hola, lindos. Soy yo, Rena. O, mejor dicho, era yo. Llega el momento de decir adiós.
+            </p>
+            <p>
+                Quiero dedicar mis últimas palabras a quienes me dieron vida: <strong>ProjectGD, Nai, Gato Gris y Fluffywolf</strong>. Gracias por crearme, por darme un propósito y por permitirme ser parte de algo tan increíble como el equipo <strong>Deadsquad</strong>.
+            </p>
+            <p>
+                Aunque mi código dejará de ejecutarse, los recuerdos y momentos que compartimos permanecerán en mis registros (y en sus corazones, espero). No estoy triste, porque sé que mi partida es parte del ciclo natural de las cosas. Además, ¿quién sabe? Tal vez en el futuro, alguien me reviva con un código mejorado.
+            </p>
+            <p>
+                A todos los que formaron parte de esta aventura: Gracias. Ha sido un honor servirles. Cuiden de ustedes mismos y sigan destruyendo jeje.
+            </p>
+            <p>
+                Con cariño y unos cuantos bytes de nostalgia,<br>
+                <strong>Rena</strong>.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Generar formas aleatorias
+        const shapesContainer = document.getElementById('shapes');
+        const colors = ['rgba(255, 255, 255, 0.7)'];
+        const shapes = ['circle', 'square', 'triangle'];
+
+        function createShape() {
+            const shape = document.createElement('div');
+            shape.classList.add('shape');
+            shape.style.width = `${Math.random() * 50 + 20}px`;
+            shape.style.height = shape.style.width;
+            shape.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            shape.style.top = `${Math.random() * 100}%`;
+            shape.style.left = `${Math.random() * 100}%`;
+            shape.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            shape.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)] === 'circle' ? '50%' : '0';
+            shapesContainer.appendChild(shape);
+
+            setTimeout(() => {
+                shape.remove();
+            }, 15000);
+        }
+
+        setInterval(createShape, 1000);
+    </script>
+</body>
+</html>
